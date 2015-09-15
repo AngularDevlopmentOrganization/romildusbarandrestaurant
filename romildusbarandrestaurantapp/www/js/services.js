@@ -3,34 +3,16 @@ angular.module('openDataApplication').factory('restService', function($http){
 
   //chamar serviço aqui.
 
-  var places = [];
-
-                 for(place = 0; place < 10; place++){
-                   places[place] = {name: "A Porteira",
-                                  telefone: "81 3426 2220",
-                                  endereco: "R Doutor JosÃ© Maria 804 lj A â€“ Encruzilhada â€“ Recife",
-                                  especialidade: "Especialidade"};
-
-                 }
-
-
 
   return{
-    categorias: function(){
-
-      var xmlhttp = new XMLHttpRequest();      
-
-      var categorias;
-      xmlhttp.onreadystatechange = function(){
-        if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
-          categorias = JSON.parse(xmlhttp.response).results;
-        }
-      }
-
-      xmlhttp.open("GET", url, true);
-      xmlhttp.send();
-
-      return categorias;
+    obterCategorias: function(index){
+      var url = "http://luanoliveira1992.pythonanywhere.com/categoria/?format=json";
+      var categorias = [];
+      return $http.get(url).then(function(response){        
+        return response.data.results;
+      },function(response){
+        alert('error ao consultar as categorias!');
+      });
 
     }
   }
