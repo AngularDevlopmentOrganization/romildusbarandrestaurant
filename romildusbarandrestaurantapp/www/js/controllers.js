@@ -20,3 +20,7 @@ angular.module('openDataApplication')
        ionicMaterialMotion.blinds();
      }, tempoDeEspera);
    }
+
+  function redirecionar(path) {
+    $location.path( path );
+};

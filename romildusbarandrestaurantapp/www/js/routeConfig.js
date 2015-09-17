@@ -6,6 +6,12 @@ angular.module('openDataApplication').config(function($stateProvider, $urlRouter
     controller: 'mainController'
   })
 
+  $stateProvider.state('bareserestaurante',{
+    url: '/bareserestaurante',
+    templateUrl: 'view/templates/bareserestaurante.html',
+    controller: 'mainController'
+  })
+
 
 $urlRouterProvider.otherwise('/categorias');
 

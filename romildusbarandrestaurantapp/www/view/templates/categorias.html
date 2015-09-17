@@ -11,7 +11,8 @@
   </style>
   <ion-list class="animate-blinds">
     <ion-item class="ink" ng-repeat="categoria in categorias">
-      <div class="title" style="background-image: url('img/{{categoria.descricao}}.jpg');background-repeat:no-repeat;background-size:100% 100%;height:180px;" class="item item-divider">
+      <div class="title" style="background-image: url('img/{{categoria.descricao}}.jpg');background-repeat:no-repeat;background-size:100% 100%;height:180px;"
+      class="item item-divider" ng-click="redirecionar({{categoria.descricao | lowercase}})">
         <div class="item item-text-wrap" style="font-size:30px;font-weight:bold;color:white;">
             {{categoria.descricao}}
         </div>
