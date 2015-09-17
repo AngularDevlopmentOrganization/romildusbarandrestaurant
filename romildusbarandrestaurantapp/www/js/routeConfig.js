@@ -1,18 +1,37 @@
 angular.module('openDataApplication').config(function($stateProvider, $urlRouterProvider){
 
-  $stateProvider.state('categorias',{
-    url: '/categorias',
+  $stateProvider.state('application',{
+    url: '/application',
     templateUrl: 'view/templates/mainView.html',
+    abstract: true,
     controller: 'mainController'
   })
 
-  $stateProvider.state('bareserestaurante',{
-    url: '/bareserestaurante',
-    templateUrl: 'view/templates/bareserestaurante.html',
-    controller: 'mainController'
+  .state('application.categorias',{
+    url: '/categorias',
+    views: {
+      'menuContent': {
+        templateUrl: 'view/templates/categorias.html',
+        controller: 'mainController'
+      }
+    }
+
   })
 
 
-$urlRouterProvider.otherwise('/categorias');
+  .state('application.bareserestaurantes',{
+    url:'/bareserestaurantes',
+    views: {
+      'menuContent': {
+        templateUrl: 'view/templates/bareserestaurantesview.html',
+        controller: 'baresERestaurantesController'
+      }
+    }
+  })
+
+
+
+
+$urlRouterProvider.otherwise('/application/categorias');
 
 });

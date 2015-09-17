@@ -1,10 +1,20 @@
 angular.module('openDataApplication')
 .controller('mainController', function($scope,$http,ionicMaterialInk,
-  ionicMaterialMotion,$ionicSideMenuDelegate,$timeout,restService){
+  ionicMaterialMotion,$ionicSideMenuDelegate,$timeout,$state,restService){
 
     carregarCategorias($scope,restService,$timeout,ionicMaterialInk,ionicMaterialMotion);
 
+    $scope.goToCategory = function(){
+      $state.go('application.bareserestaurantes');
+    }
+
 })
+
+
+.controller('baresERestaurantesController', function($scope,$stateParams,ionicMaterialInk){
+  ionicMaterialInk.displayEffect();
+})
+
 
    function carregarCategorias($scope,restService,$timeout,ionicMaterialInk,ionicMaterialMotion){
      var categories = restService.obterCategorias();

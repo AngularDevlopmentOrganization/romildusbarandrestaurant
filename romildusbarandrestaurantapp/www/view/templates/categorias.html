@@ -1,4 +1,11 @@
-<ion-content class="has-header">
+<ion-view view-title="Categorias">
+  <ion-nav-bar class="bar-header bar-positive">
+    <ion-nav-buttons side="left">
+      <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+      </button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+<ion-content>
   <style>
     .item{
       margin:2px auto;
@@ -9,8 +16,8 @@
       padding-top: 35px;
     }
   </style>
-  <ion-list class="animate-blinds">
-    <ion-item class="ink" ng-repeat="categoria in categorias">
+  <ion-list class="animate-blinds has-header">
+    <ion-item class="ink" ng-repeat="categoria in categorias" ng-click="goToCategory()">
       <div style="height:30vh; background-image: url('img/{{categoria.descricao}}.jpg');background-repeat:no-repeat;background-size:100% 100%;">
         <div class="item item-text-wrap" style="font-size:30px;font-weight:bold;color:white;">
             {{categoria.descricao}}
@@ -19,3 +26,4 @@
     </ion-item>
   </ion-list>
 </ion-content>
+</ion-view>
