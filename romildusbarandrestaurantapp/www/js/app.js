@@ -16,5 +16,7 @@ angular.module('openDataApplication', ['ionic','ionic-material'])
     if(window.StatusBar) {
       StatusBar.styleDefault();
     }
+
+
   });
 })

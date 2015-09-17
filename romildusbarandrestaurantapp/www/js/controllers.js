@@ -12,7 +12,14 @@ angular.module('openDataApplication')
 
 
 .controller('baresERestaurantesController', function($scope,$stateParams,ionicMaterialInk){
-  ionicMaterialInk.displayEffect();
+
+  $scope.$on("$ionicView.afterEnter", function(){
+    ionicMaterialInk.displayEffect();
+    $scope.places = [{nome: 'bar 1'}, {nome: 'restaurante 1'}];
+  });
+
+
+
 })
 
 

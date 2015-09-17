@@ -1,1 +1,13 @@
-<ion-nav-view name='menuContent' enableMenuWithBackViews="false"></ion-nav-view>
+<ion-side-menus enableMenuWithBackViews="false">
+  <ion-nav-bar class="bar-header bar-positive"  >
+    <ion-nav-back-button class="no-text">
+    </ion-nav-back-button>
+    <ion-nav-buttons>
+      <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+      </button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+  <ion-side-menu-content>
+    <ion-nav-view name='menuContent'></ion-nav-view>
+  </ion-side-menu-content>
+</ion-side-menus>
