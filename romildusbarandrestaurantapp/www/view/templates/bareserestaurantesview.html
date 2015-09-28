@@ -1,8 +1,8 @@
 <ion-view view-title="Bares e Restaurantes">
   <ion-content>
-    <ion-list>
-      <ion-item ng-repeat="place in places">
-        <div class="list card stable-bg" data-ink-color="#387E85">
+    <ion-list ng-repeat="place in places">
+      <ion-item >
+        <div class="list card stable-bg" data-ink-color="#387EF5" style="background-color:gray;">
                           <div class="item item-avatar">
                               <h2>{{place.nome}}</h2>
                          </div>
@@ -16,6 +16,12 @@
                             </div>
                         </div>
       </ion-item>
+
     </ion-list>
+   <div class="button-bar">
+       <a class="button ion-ios-arrow-back button-energized">Anterior</a>
+       <a class="button ion-home button-balanced">Home</a>
+       <a class="button ion-ios-arrow-forward button-energized">Próximo</a>
+   </div>
   </ion-content>
 </ion-view>
