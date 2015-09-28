@@ -4,19 +4,19 @@ angular.module('openDataApplication')
 
     carregarCategorias($scope,restService,$timeout,ionicMaterialInk,ionicMaterialMotion);
 
-    $scope.goToCategory = function(){
-      $state.go('application.bareserestaurantes');
+    $scope.goToCategory = function($local){
+      $state.go('application.'+$local);
     }
 
 })
 
 
-.controller('baresERestaurantesController', function($scope,$stateParams,ionicMaterialInk){
+.controller('baresERestaurantesController', function($scope,restService,$timeout,ionicMaterialInk,ionicMaterialMotion){
 
-  $scope.$on("$ionicView.afterEnter", function(){
-    ionicMaterialInk.displayEffect();
-    $scope.places = [{nome: 'bar 1'}, {nome: 'restaurante 1'}];
-  });
+    $scope.$on("$ionicView.afterEnter", function(){
+      ionicMaterialInk.displayEffect();
+        carregarBarERes($scope,restService,$timeout,ionicMaterialInk,ionicMaterialMotion);
+    });
 
 
 
@@ -27,6 +27,15 @@ angular.module('openDataApplication')
      var categories = restService.obterCategorias();
      categories.then(function(response){
        $scope.categorias = response;
+       aplicarEfeitoBlinds($timeout, ionicMaterialInk, ionicMaterialMotion, 200);
+     })
+   }
+
+   function carregarBarERes($scope,restService,$timeout,ionicMaterialInk,ionicMaterialMotion){
+     var barERelDataModel = restService.obterBareRes();
+     barERelDataModel.then(function(response){
+       $scope.places = response.results;
+       $scope.dataModel = barERelDataModel;
        aplicarEfeitoBlinds($timeout, ionicMaterialInk, ionicMaterialMotion, 200);
      })
    }

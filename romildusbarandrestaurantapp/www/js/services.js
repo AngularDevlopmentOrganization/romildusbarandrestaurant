@@ -5,7 +5,7 @@ angular.module('openDataApplication').factory('restService', function($http){
 
 
   return{
-    obterCategorias: function(index){
+    obterCategorias: function(){
       var url = "http://luanoliveira1992.pythonanywhere.com/categoria/?format=json";
       var categorias = [];
       return $http.get(url).then(function(response){
@@ -14,7 +14,20 @@ angular.module('openDataApplication').factory('restService', function($http){
         alert('error ao consultar as categorias!');
       });
 
+  },
+
+    obterBareRes: function(){
+      var url = "http://luanoliveira1992.pythonanywhere.com/bareres/?format=json";
+      var bareserestaurantes = [];
+      return $http.get(url).then(function(response){
+        return response.data;
+      },function(response){
+        alert('error ao consultar bares e restaurantes!');
+      });
+
     }
   }
+
+
 
 });

@@ -11,8 +11,8 @@
     }
   </style>
   <ion-list class="animate-blinds has-header">
-    <ion-item class="ink" ng-repeat="categoria in categorias" ng-click="goToCategory()">
-      <div style="height:30vh; background-image: url('img/{{categoria.descricao}}.jpg');background-repeat:no-repeat;background-size:100% 100%;">
+    <ion-item class="ink" ng-repeat="categoria in categorias" ng-click="goToCategory('{{categoria.label}}')">
+      <div style="height:30vh; background-image: url('img/{{categoria.label}}.jpg');background-repeat:no-repeat;background-size:100% 100%;">
         <div class="title item-text-wrap" style="font-size:30px;font-weight:bold;color:white;">
             {{categoria.descricao}}
         </div>

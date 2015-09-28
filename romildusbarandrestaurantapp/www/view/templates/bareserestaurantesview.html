@@ -2,7 +2,19 @@
   <ion-content>
     <ion-list>
       <ion-item ng-repeat="place in places">
-        {{place.nome}}
+        <div class="list card stable-bg" data-ink-color="#387E85">
+                          <div class="item item-avatar">
+                              <h2>{{place.nome}}</h2>
+                         </div>
+                          <div class="item item-body">
+                                <div>Especialidade : {{place.especialidade}}</div>
+                                <div>Telefone:  {{place.telefone}}</div>
+                                <div>Endereço:  {{place.endereco}}</div>
+                                <div>Site:
+                                    <a href="{{place.site}}" class="tab-item" data-ink-color="#336699" data-ink-opacity="0.5"> <i class="ion-earth"></i></a>
+                                </div>
+                            </div>
+                        </div>
       </ion-item>
     </ion-list>
   </ion-content>

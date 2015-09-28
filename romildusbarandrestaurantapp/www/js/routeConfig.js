@@ -19,8 +19,8 @@ angular.module('openDataApplication').config(function($stateProvider, $urlRouter
   })
 
 
-  .state('application.bareserestaurantes',{
-    url:'/bareserestaurantes',
+  .state('application.bareres',{
+    url:'/bareres',
     views: {
       'menuContent': {
         templateUrl: 'view/templates/bareserestaurantesview.html',
