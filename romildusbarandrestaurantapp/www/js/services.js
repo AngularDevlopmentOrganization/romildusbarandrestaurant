@@ -1,5 +1,5 @@
 
-angular.module('openDataApplication').factory('restService', function($http){
+angular.module('openDataApplication',['ionic','ionic-material']).factory('restService', function($http){
 
   //chamar serviço aqui.
 
