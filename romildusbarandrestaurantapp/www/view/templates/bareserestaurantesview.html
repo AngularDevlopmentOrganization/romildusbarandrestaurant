@@ -1,7 +1,7 @@
 <ion-view view-title="Bares e Restaurantes">
   <ion-content>
-    <ion-list class="rollIn" ng-repeat="place in places">
-      <ion-item >
+    <ion-list ng-repeat="place in places">
+      <ion-item class="animated fadeInLeft">
         <div class="list card stable-bg" data-ink-color="#387EF5" style="background-color:gray;">
           <div class="item item-avatar">
             <h2>{{place.nome}}</h2>
@@ -16,12 +16,9 @@
           </div>
         </div>
       </ion-item>
-
     </ion-list>
-   <div class="button-bar">
-       <a class="button ion-ios-arrow-back button-energized">Anterior</a>
-       <a class="button ion-home button-balanced">Home</a>
-       <a class="button ion-ios-arrow-forward button-energized">Próximo</a>
-   </div>
   </ion-content>
+  <ion-footer-bar class="bar-balanced">
+    
+  </ion-footer-bar>
 </ion-view>
