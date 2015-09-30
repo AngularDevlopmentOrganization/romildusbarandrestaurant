@@ -19,4 +19,7 @@ angular.module('openDataApplication', ['ionic','ionic-material'])
 
 
   });
-})
+}).config(function($ionicConfigProvider){
+    $ionicConfigProvider.views.transition('ios');
+    $ionicConfigProvider.navBar.transition('ios');
+});

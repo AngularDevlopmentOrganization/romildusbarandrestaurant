@@ -3,12 +3,14 @@ angular.module('openDataApplication')
   ionicMaterialMotion,$ionicSideMenuDelegate,$timeout,$state,$ionicLoading,
   restService){
 
-    $scope.loadingIndicator = $ionicLoading.show({
-      template: '<ion-spinner icon="android"/></p>',
-      animation: 'fade-in',
-      showBackdrop: false,
-      showDelay: 0
-    });
+    $scope.dadosView = {titulo: 'Categorias'};
+
+    // $scope.loadingIndicator = $ionicLoading.show({
+    //   template: '<ion-spinner icon="android"/></p>',
+    //   animation: 'fade-in',
+    //   showBackdrop: false,
+    //   showDelay: 0
+    // });
 
     carregarCategorias($scope,restService,$timeout,ionicMaterialInk,ionicMaterialMotion,$ionicLoading);
 
