@@ -3,15 +3,8 @@ angular.module('openDataApplication')
   ionicMaterialMotion,$ionicSideMenuDelegate,$timeout,$state,$ionicLoading,
   restService){
 
-    $scope.dadosView = {titulo: 'Categorias'};
 
-    // $scope.loadingIndicator = $ionicLoading.show({
-    //   template: '<ion-spinner icon="android"/></p>',
-    //   animation: 'fade-in',
-    //   showBackdrop: false,
-    //   showDelay: 0
-    // });
-
+    executarLoadIngindicator($scope, $ionicLoading);
     carregarCategorias($scope,restService,$timeout,ionicMaterialInk,ionicMaterialMotion,$ionicLoading);
 
     $scope.goToCategory = function($local){
@@ -37,6 +30,14 @@ angular.module('openDataApplication')
 
 })
 
+  function executarLoadIngindicator($scope,$ionicLoading){
+    $scope.loadingIndicator = $ionicLoading.show({
+      template: '<ion-spinner icon="android"/></p>',
+      animation: 'fade-in',
+      showBackdrop: false,
+      showDelay: 0
+    });
+  }
 
    function carregarCategorias($scope,restService,$timeout,ionicMaterialInk,ionicMaterialMotion,$ionicLoading){
      var categories = restService.obterCategorias();
