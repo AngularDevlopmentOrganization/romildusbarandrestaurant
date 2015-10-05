@@ -16,8 +16,16 @@ angular.module('openDataApplication',['ionic','ionic-material']).factory('restSe
 
   },
 
-    obterBareRes: function(){
-      var url = "http://luanoliveira1992.pythonanywhere.com/bareres/?format=json";
+    obterBareRes: function(next){
+
+      var url = "";
+
+      if(next == undefined){
+        url = "http://luanoliveira1992.pythonanywhere.com/bareres/?format=json";
+      }else{
+        url = next;        
+      }
+
       var bareserestaurantes = [];
       return $http.get(url).then(function(response){
         return response.data;

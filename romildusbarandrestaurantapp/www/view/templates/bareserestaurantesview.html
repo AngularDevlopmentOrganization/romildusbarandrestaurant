@@ -17,6 +17,11 @@
         </div>
       </ion-item>
     </ion-list>
+    <ion-infinite-scroll
+      on-infinite="loadMore()"
+      distance="20%"
+      ng-if="moreDataCanBeLoad()">
+    </ion-infinite-scroll>
   </ion-content>
   <div class="bar bar-footer bar-balanced">
     <div class="title">Footer</div>
