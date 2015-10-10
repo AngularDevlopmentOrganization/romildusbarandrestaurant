@@ -4,7 +4,7 @@ angular.module('openDataApplication')
   restService){
 
 
-    executarLoadIngindicator($scope, $ionicLoading);
+    executarLoadingIndicator($scope, $ionicLoading);
     carregarCategorias($scope,restService,$timeout,ionicMaterialInk,ionicMaterialMotion,$ionicLoading);
 
     $scope.goToCategory = function($local){
@@ -37,7 +37,7 @@ angular.module('openDataApplication')
 
 })
 
-  function executarLoadIngindicator($scope,$ionicLoading){
+  function executarLoadingIndicator($scope,$ionicLoading){
     $scope.loadingIndicator = $ionicLoading.show({
       template: '<ion-spinner icon="android"/></p>',
       animation: 'fade-in',
