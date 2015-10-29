@@ -1,9 +1,18 @@
 /* Empty. Add your own CSS if you like */
+
 .loading-container .loading {
-  background-color: transparent !important;
+    background-color: transparent !important;
 }
 
 .spinner svg {
-  width: 25vh;
-  height: 25vh;  
+    width: 25vh;
+    height: 25vh;
+}
+
+.imagebg {
+    background: url('../img/background.jpg');
+}
+
+.footer {
+    background-color: #387EF5 !important;
 }
