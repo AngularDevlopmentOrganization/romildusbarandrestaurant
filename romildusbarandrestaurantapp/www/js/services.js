@@ -6,10 +6,10 @@ angular.module('openDataApplication',['ionic','ionic-material']).factory('restSe
 
   return{
     obterCategorias: function(){
-      var url = "http://luanoliveira1992.pythonanywhere.com/categoria/?format=json";
+      var url = "http://localhost:3000/getcatrs";
       var categorias = [];
-      return $http.get(url).then(function(response){
-        return response.data.results;
+      return $http.get(url).then(function(response){        
+        return response.data;
       },function(response){
         alert('error ao consultar as categorias!');
       });
@@ -23,7 +23,7 @@ angular.module('openDataApplication',['ionic','ionic-material']).factory('restSe
       if(next == undefined){
         url = "http://luanoliveira1992.pythonanywhere.com/bareres/?format=json";
       }else{
-        url = next;        
+        url = next;
       }
 
       var bareserestaurantes = [];
