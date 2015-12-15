@@ -2,13 +2,14 @@
 angular.module('openDataApplication',['ionic','ionic-material']).factory('restService', function($http){
 
   //chamar serviço aqui.
+  var webserver = "http://localhost:3000";
 
 
   return{
     obterCategorias: function(){
-      var url = "http://localhost:3000/getcatrs";
+      var url = webserver + "/getcatrs";
       var categorias = [];
-      return $http.get(url).then(function(response){        
+      return $http.get(url).then(function(response){
         return response.data;
       },function(response){
         alert('error ao consultar as categorias!');
