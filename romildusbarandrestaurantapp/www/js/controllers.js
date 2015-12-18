@@ -17,18 +17,21 @@ angular.module('openDataApplication')
 .controller('baresERestaurantesController', function ($scope, restService, $timeout, ionicMaterialInk,
     ionicMaterialMotion) {
 
-    $scope.count = 0;
-    $scope.next = undefined;
+    $scope.page = 0;
+    $scope.pageSize = 5;
+    $scope.numeroDeRegistros = 0;
     $scope.places = [];
 
     ionicMaterialInk.displayEffect();
+
+
 
     $scope.loadMore = function () {
         carregarBarERes($scope, restService, $timeout, ionicMaterialInk, ionicMaterialMotion);
     }
 
-    $scope.moreDataCanBeLoad = function () {
-        return $scope.places.length <= $scope.count;
+    $scope.moreDataCanBeLoad = function () {      
+        return $scope.places.length <= $scope.numeroDeRegistros;
     }
 
     $scope.GotoLink = function (url) {
@@ -60,13 +63,8 @@ function carregarCategorias($scope, restService, $timeout, ionicMaterialInk, ion
 }
 
 function carregarBarERes($scope, restService, $timeout, ionicMaterialInk, ionicMaterialMotion) {
-    var barERelDataModel = restService.obterBareRes($scope.next);
-
+    var barERelDataModel = restService.obterBareRes($scope, $scope.page, $scope.pageSize);
     barERelDataModel.then(function (response) {
-
-        if ($scope.count == 0) {
-            $scope.count = response.count;
-        }
         carregarLugaresComVelocidade($scope, $timeout, response, 500);
     })
 }
@@ -78,12 +76,13 @@ function carregarLugaresComVelocidade($scope, $timeout, response, velocidade) {
 
 function carregarLugares($scope, $timeout, response, place, velocidade) {
     $timeout(function () {
-        $scope.places.push(response.results[place]);
+
+        $scope.places.push(response[place]);
         place++;
-        if (place < response.results.length) {
+        if (place < response.length) {
             carregarLugares($scope, $timeout, response, place, velocidade);
         } else {
-            $scope.next = response.next;
+            $scope.page += 1;
             $scope.$broadcast('scroll.infiniteScrollComplete');
         }
     }, velocidade);

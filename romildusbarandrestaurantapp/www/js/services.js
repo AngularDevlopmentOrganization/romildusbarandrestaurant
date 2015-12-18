@@ -17,19 +17,14 @@ angular.module('openDataApplication',['ionic','ionic-material']).factory('restSe
 
   },
 
-    obterBareRes: function(next){
+    obterBareRes: function($scope, page, size){
 
-      var url = "";
-
-      if(next == undefined){
-        url = "http://luanoliveira1992.pythonanywhere.com/bareres/?format=json";
-      }else{
-        url = next;
-      }
-
+      var url = webserver + "/getres?page=" + page + "&size=" + size;      
       var bareserestaurantes = [];
+
       return $http.get(url).then(function(response){
-        return response.data;
+        $scope.numeroDeRegistros = response.data.numeroDeRegistros
+        return response.data.resultado;
       },function(response){
         alert('error ao consultar bares e restaurantes!');
       });
